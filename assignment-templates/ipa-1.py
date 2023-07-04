@@ -5,11 +5,12 @@ tax_rate = 0.25
 expenses = 12000.5
 
 def savings(gross_pay, tax_rate, expenses):
-    saving = gross_pay*(1-tax_rate)-expenses
+    saving = int(gross_pay*(1-tax_rate)-expenses)
     return saving
 
 saving = savings(gross_pay, tax_rate, expenses)
 print("Savings:",saving, "pesos")
+
 
 
 
@@ -21,12 +22,11 @@ numjobs = 50
 job_consumption = 12
 
 def material_waste(total_material, material_units, numjobs, job_consumption):
-    wasted = total_material-numjobs*job_consumption
+    wasted = str(total_material-numjobs*job_consumption) + material_units
     return wasted
 
 wasted = material_waste(total_material, material_units, numjobs, job_consumption)
-wasteprint = str(wasted)+ material_units
-print("Wasted Amount:", wasteprint)
+print("Wasted Amount:", wasted)
 
 
 
@@ -46,30 +46,22 @@ print("Final Investment Value:",final_value, "pesos")
 
 
 
+
 #bmi problem
-lbs = 180
-ft_in = [5, 10]
-feet = ft_in[0]
-inches = ft_in [1]
 
-def weight_converter(lbs):
-    kg = lbs/2.20462
-    return kg
+weight = 180
+height = [5, 11]
 
-kg = weight_converter(lbs)
-
-def height_converter(feet, inches):
+def body_mass_index(weight, height):
+    kg = weight/2.20462
+    feet = height[0]
+    inches = height [1]
     total_inches = feet*12 + inches
     meter = total_inches/39.37
-    return meter
 
-meter = height_converter(feet, inches)
-    
-    
-def body_mass_index(kg, meter):
     bmi = kg / (meter**2)
     return bmi
 
-bmi = body_mass_index(kg, meter)
+bmi = body_mass_index(weight, height)
 print("BMI:",bmi)
 
