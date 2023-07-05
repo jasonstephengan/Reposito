@@ -41,16 +41,19 @@ print(decode)
 
 
 #shift by letter
-letter = "Z"
-letter_shift = "Z"
+letter = ""
+letter_shift = "B"
 
 
 def shift_by_letter(letter, letter_shift):
     letter = letter.upper()
     letter_shift = letter_shift.upper()
-    numerical = ord(letter) + ord(letter_shift)-65
-    numerical = (numerical - 65) % 26 + 65
-    alphabetical = chr(numerical)
+    if letter == "":
+        alphabetical = letter
+    else:
+        numerical = ord(letter) + ord(letter_shift)-65
+        numerical = (numerical - 65) % 26 + 65
+        alphabetical = chr(numerical)
     
     return alphabetical
 
@@ -98,20 +101,16 @@ print(decode)
 
 #scytale cipher
 message = "HOMELANDER_HAS_FALLEN"
-shift = 4
+shift = 5
 def scytale_cipher(message, shift):
     message = message.upper()
-    if len(message) % shift ==0:
-        shift = len(message) // shift
-
-    elif len(message) % shift !=0:
-        shift = len(message) // shift +1
+    
+    if len(message) % shift != 0:
+        padding = shift - (len(message) % shift)
+        message += "_" * padding
         
     decode = ""
     zero = 0
-    
-    while len(message) % shift != 0:
-        message += "_"
     
     while zero < shift:
         for i in range (zero,len(message),shift):
@@ -119,10 +118,12 @@ def scytale_cipher(message, shift):
             decode += row1
         zero += 1
     
+    
     return decode
     
 decode = scytale_cipher(message, shift)  
 print(decode)
+    
 
 
 
@@ -130,8 +131,8 @@ print(decode)
     
 
 #scytale decipher
-message = "HNALODSEME_NERF_L_A_AHL_"
-shift = 4
+message = "HA_FNONHA_MDAL_EESL_LR_E_"
+shift = 5
 
 
 def scytale_decipher(message, shift):
@@ -144,13 +145,10 @@ def scytale_decipher(message, shift):
             row1 = message[i]
             decode += row1
         zero += 1
-    
-    while decode[-1] == "_":
-        decode = decode[:-1]
-    
 
     return decode
     
 decode = scytale_decipher(message, shift)  
 print(decode)
+    
 
