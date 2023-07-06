@@ -170,7 +170,7 @@ route_map = {
     }
 }
 first_stop = "Place D"
-last_stop = "Place B"
+second_stop = "Place B"
 
 def eta(first_stop, second_stop, route_map):
     traveltime = 0
@@ -188,7 +188,7 @@ def eta(first_stop, second_stop, route_map):
 #add distances then loop the stops
     while True:
         traveltime += route_map[(from_stop, to_stop)]["travel_time_mins"]
-        if to_stop == last_stop:
+        if to_stop == second_stop:
             break
         else:
             x += 1
