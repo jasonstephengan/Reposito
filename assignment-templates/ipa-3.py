@@ -124,7 +124,7 @@ def tic_tac_toe(board):
     for e in range(len(board)):
         diagonal.append(board[e][e])
     if diagonal.count('O') == len(diagonal):
-        return "O Win"
+        return "O"
     elif diagonal.count('X') == len(diagonal):
             return "X"
 
