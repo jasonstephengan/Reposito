@@ -48,7 +48,7 @@ letter_shift = "B"
 def shift_by_letter(letter, letter_shift):
     letter = letter.upper()
     letter_shift = letter_shift.upper()
-    if letter == "":
+    if letter == " " or letter == "":
         alphabetical = letter
     else:
         numerical = ord(letter) + ord(letter_shift)-65
