@@ -48,7 +48,7 @@ letter_shift = "B"
 def shift_by_letter(letter, letter_shift):
     letter = letter.upper()
     letter_shift = letter_shift.upper()
-    if letter == " " or letter == "":
+    if letter == "" or letter == " ":
         alphabetical = letter
     else:
         numerical = ord(letter) + ord(letter_shift)-65
@@ -59,6 +59,8 @@ def shift_by_letter(letter, letter_shift):
 
 alphabetical = shift_by_letter(letter, letter_shift)
 print(alphabetical)
+    
+    
     
     
     
@@ -99,32 +101,24 @@ print(decode)
 
 
 
-#scytale cipher
-message = "HOMELANDER_HAS_FALLEN"
-shift = 5
-def scytale_cipher(message, shift):
-    message = message.upper()
-    
-    if len(message) % shift != 0:
-        padding = shift - (len(message) % shift)
-        message += "_" * padding
-        
-    decode = ""
-    zero = 0
-    
-    while zero < shift:
-        for i in range (zero,len(message),shift):
-            row1 = message[i]
-            decode += row1
-        zero += 1
-    
-    
-    return decode
-    
-decode = scytale_cipher(message, shift)  
-print(decode)
-    
+message = "ALGORITHMS_ARE_IMPORTANT"
+shift = 8
 
+def scytale_cipher(message, shift):
+    code = ""
+    while len(message) % shift != 0:
+        message += "_"
+        
+    for i in range(len(message)):
+        x = (i // shift) + (len(message) // shift) * (i % shift)
+        if x < len(message):
+            code += message[x]
+    
+    return code
+
+
+code = scytale_cipher(message, shift)  
+print(code)    
 
 
 
