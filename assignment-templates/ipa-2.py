@@ -49,7 +49,7 @@ def shift_by_letter(letter, letter_shift):
     letter = letter.upper()
     letter_shift = letter_shift.upper()
     if letter == "" or letter == " " or letter_shift == "_" or letter_shift == "" or letter_shift == " ":
-        alphabetical = letter
+        alphabetical = " "
     else:
         numerical = ord(letter) + ord(letter_shift)-65
         numerical = (numerical - 65) % 26 + 65
