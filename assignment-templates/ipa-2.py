@@ -41,14 +41,12 @@ print(decode)
 
 
 #shift by letter
-letter = ""
-letter_shift = "B"
-
-
 def shift_by_letter(letter, letter_shift):
     letter = letter.upper()
     letter_shift = letter_shift.upper()
-    if letter == "" or letter == " " or letter == "_" or letter_shift == "_" or letter_shift == "" or letter_shift == " " or ord(letter) == 32:
+    if letter == "" or letter == " " or letter_shift == "_" or letter_shift == "" or letter_shift == " " or ord(letter) == 32:
+        return(" ")
+    elif ord(letter) < 65 or ord(letter)>90 or ord(letter_shift) < 65 or ord(letter_shift)>90: 
         return(" ")
     else:
         numerical = ord(letter) + ord(letter_shift)-65
@@ -57,8 +55,7 @@ def shift_by_letter(letter, letter_shift):
     
     return alphabetical
 
-alphabetical = shift_by_letter(letter, letter_shift)
-print(alphabetical)
+
     
     
     
