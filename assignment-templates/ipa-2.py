@@ -3,7 +3,7 @@
 
 def shift_letter(letter, shift):
     letter = letter.upper()
-    if ord(letter) < 65 or ord(letter)>90: 
+    if ord(letter) < 65 or ord(letter)>90 or shift == " " or shift == "_": 
         return(" ")
     else:
         numerical = ord(letter) + shift
