@@ -1,20 +1,19 @@
-#shift letter
-letter = "A"
-shift = 27
 
 
 
 def shift_letter(letter, shift):
     letter = letter.upper()
-    numerical = ord(letter) + shift
-    numerical = (numerical - 65) % 26 + 65
-    alphabetical = chr(numerical)
+    if ord(letter) < 65 or ord(letter)>90: 
+        return(" ")
+    else:
+        numerical = ord(letter) + shift
+        numerical = (numerical - 65) % 26 + 65
+        alphabetical = chr(numerical)
     
     return alphabetical
 
 alphabetical = shift_letter(letter, shift)
 print(alphabetical)
-    
 
 
 
